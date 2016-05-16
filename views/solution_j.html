@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<% 
+    var cn='';
+    if(83==data[0].son_template_id) cn='行业类型';   
+    if(85==data[0].son_template_id) cn='经典案例';
+%>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <title id="aapp">
+        <%= cn %>
+    </title>
+    <meta name="keywords" content="MEAP移动应用开发平台,EMM移动应用管理平台,AppCan企业移动平台,移动云平台,SDK,MAS,MBaaS,MCM,MAM,MEM" />
+    <meta name="description" content="AppCan产品&服务包括MEAP移动应用开发平台、EMM移动应用管理平台、企业移动平台安全体系、移动云平台等。">
+    <meta name="author" content="">
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+    <link href="http://appcan.cn/css/newHeader-tomobi.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/footer-tomobi.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/appcanstyle.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/appcanmain.css" rel="stylesheet" />
+    <link href="/css/solution.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://appcan.cn/js/sso.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+</head>
+<%     
+    var t = total;
+    var p = parseInt(pages);
+    var path="/solution?id="+itemTemplateId
+        path+="&page="
+    var dom = '<li><a href="'+path+((p==1)?1:(p-1))+'">&lt;</a></li><li><a href="'+path+'">1</a></li>';  
+
+    if (t < 9) {
+        for (var i = 2; i < t + 1; i++) {
+            
+            dom += '<li><a href="'+path+i+'">' + i + '</a></li>'
+        }
+    } else {
+        if ( p <= 5 && t >= p) {
+            for (var i = 2; i < 8; i++) {
+                dom += '<li><a href="'+path+i+'">' + i + '</a></li>'
+            }
+            dom += '<li><a href="javascript:void(0)">...</a></li>'
+            dom += '<li><a href="'+path+t+'">' + t + '</a></li>'
+        }else if (p > 5  && t - p > 3) {
+            dom += '<li><a href="javascript:void(0)">...</a></li>'
+            for (var i = p - 2; i < p+3; i++) {
+                dom += '<li><a href="'+path+i+'">' + i + '</a></li>'
+            }
+            if (t - p > 3) {
+                dom += '<li><a href="javascript:void(0)">...</a></li>'
+                dom += '<li><a href="'+path+t+'">' + t + '</a></li>'
+            }
+        }else if (p > 5  && t - p <= 3) {
+            dom += '<li><a href="javascript:void(0)">...</a></li></li>'
+            for (var i = t - 5; i < t + 1; i++) {
+                dom += '<li><a href="'+path+i+'">' + i + '</a></li>'
+            }
+        };
+    } 
+    dom+='<li><a href="'+path+((p+1)<t?(p+1):t)+'">&gt;</a></li>'
+        +'<li style="font-size: 13px">'
+             +'<input type="text" name="aaa" class="turnNum" id="pagenum" style="margin-bottom: 0px;margin-right:5px;">页'
+        +'</li>'
+        +'<li><button class="btn" id="confirm" style="margin-left: 5px;">确定</button>'
+        +'</li>'
+    
+%>
+<body>
+    <div class="to-scroll">
+        <% include ./FooterAndHeader/newHeader-tomobi.html %>
+        <div class="navbar navbar-duomi navbar-static-top" role="navigation">
+            <div class=" navbar-end" >
+            </div>
+        </div>
+        <div class="container container-body ">
+            <div class="row">
+                <div class="col-md-3 col-md-3-pad hidden-sm hidden-xs" style="padding-left:15px;padding-right:15px">
+                    <% include solution_menu.html %>
+                </div>
+                
+                <div id="Case" class="col-md-9">
+                    <span style="color:#666666" class="span-bl"><a style="color:#666666;font:strong;margin-left:10px;">解决方案</a>&nbsp;&gt;<a style="color:#666666"><%= cn %></a></span>
+                    <span class="span-bl">
+                        <ul id="main-nav" class="main-nav nav nav-tabs nav-stacked ul-border" style="">
+                            <li style="background:#e4eaf5;height:62px;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;">
+                                <h4 style="font-weight: 700;font-size: 18px; font-family:微软雅黑;margin:0px;line-height:62px;margin-left:20px;"><%= cn.substr(2,2) %>列表</h4>
+                            </li>
+                            <% for(var i=data.length-1;i>-1;i--){ %>
+                            <span class="span-style span-style-a" style="position: relative;">
+                                <a href="/solution/details?case=<%= data[i].id %>" target="_blank" style="font-family:微软雅黑;color:#494949">
+                                    <img src="http://3g2win.com/3g2winapi/getCImg?img=<%= data[i].propaganda_image_pc %>" style="width:260px;height:180px" alt="">
+                                </a>
+                                    <div class="bacg"><%= data[i].case_name %></div>
+                            </span>
+                            <% }%>
+
+                            <li style="height:20px;background:#fff;clear:both"></li>
+                            <!-- 分页开始 -->
+                                <li style="height:54px;background:#f9f9f9;margin-top:0;">
+                                    <div class="pagination mt144">
+                                        <ul id="setpage">
+                                            <%- dom %>
+                                        </ul>
+                                    </div>
+                                </li>
+                            <!-- 分页结束 -->
+                        </ul>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <!-- 百度统计代码 -->
+
+        <% include ./FooterAndHeader/footer-tomobi.html %>
+    </div>
+<script>
+
+var ta = $('#setpage').children();
+for (var i = 0; i < ta.length; i++) {
+    if ($(ta[i]).children().html() == <%= pages %>) { $(ta[i]).addClass('active') }
+};
+$('#confirm').on('click',function () {
+    var host=location.host;
+    var p=$('#pagenum').val();
+    if (p>0 && p <= <%= total %>) {
+        location.href='http://'+host+'/news?itemTemplateId=94&page='+p;
+    }else{alert('请输入正确的页码！')}
+})
+</script>
+</body>
+
+</html>
+<script>
+$(function () {
+    var u=location.href;
+    var reg=/\?id\=(\d+)$/;
+    reg.test(u);
+    var mc=RegExp.$1;
+    
+
+    if ((mc==329)||(mc==328)||(mc==270)||(mc==269)||(mc==280)||(mc==140)) {$('#systemSetting').addClass('in');$('.xiala1').removeClass('collapsed').children().removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
+    $('.nav-header').click(function(event) {
+
+        if ($(this).hasClass('collapsed')) {
+            $(this).children().removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+        }else{
+            $(this).children().removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+        }
+        
+    });
+})
+</script>
+
+
+    

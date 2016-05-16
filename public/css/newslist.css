@@ -1,0 +1,102 @@
+html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti; margin: 0; padding: 0; }
+a:focus { outline: none }
+.main-nav { margin-left: 1px; padding-bottom: 0; }
+.main-nav.nav-tabs.nav-stacked > li { }
+.main-nav.nav-tabs.nav-stacked > li > a { padding: 10px 8px; padding-left: 20px; font-size: 12px; font-weight: 600; color: #333333; background: #E9E9E9; background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FAFAFA), color-stop(100%, #E9E9E9)); background: -webkit-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -o-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -ms-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')"; border: 1px solid #e5e5e5; }
+.main-nav.nav-tabs.nav-stacked > li > a > span { color: #4A515B; }
+.main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover { color: #4d52a7; background: #e4eaf5; padding: 10px 8px 10px 17px; border-left: 4px solid #afbed1; }
+.main-nav.nav-tabs.nav-stacked > li { margin-bottom: 0px; margin-top: -1px; }
+.nav-header.collapsed > span.glyphicon-chevron-toggle:before { content: "\e080"; }
+.nav-header > span.glyphicon-chevron-toggle:before { content: "\e080"; }
+footer.duomi-page-footer { background-color: white; }
+footer.duomi-page-footer .beta-message { color: #a4a4a4; }
+footer.duomi-page-footer .beta-message a { color: #53a2e4; }
+footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inline li { color: #a4a4a4; padding-bottom: 30px; }
+footer.duomi-page-footer { background-color: white; }
+footer.duomi-page-footer .beta-message { color: #a4a4a4; }
+footer.duomi-page-footer .beta-message a { color: #53a2e4; }
+footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inline li { color: #a4a4a4; padding-bottom: 30px; }
+
+/*********************************************自定义部分*********************************************/
+.navbar-end { width: 100%; background: url(/images/zzbanner2.jpg) no-repeat #257CEF;background-position: center;height: 200px; }
+.secondmenu a { font-size: 12px; font-weight: 600; color: #333333; border: 1px solid #ccc; background: #fff; border-top: 0px; }
+.secondmenu > li > a:hover { background-color: #e4eaf5; color: #4d52a7; }
+.secondmenu li.active { background-color: #6f7782; border-color: #428bca; }
+.secondmenu li.active > a { color: #ffffff; }
+.navbar-static-top { background-color: #fff; margin-bottom: 5px; }
+.navbar-brand { background: url('http://static-res.ruyo.net/ruyo_net_w_32.png') no-repeat 10px 8px; display: inline-block; vertical-align: middle; padding-left: 50px; color: #fff; }
+.navbar-brand:hover { color: #fff; }
+.collapse.glyphicon-chevron-toggle, .glyphicon-chevron-toggle:before { content: "\e113"; }
+.collapsed.glyphicon-chevron-toggle:before { content: "\e114"; }
+.container-body { margin-top: 65px; }
+.col-md-3-pad { padding-left: 0; }
+.nav-tabs > li > a { border-radius: 0px 0px 0 0; margin-right: 0px; }
+
+#content-div div { display: none; }
+#content-div div *{ color: #666; }
+#Content *{ color: #666; }
+#content-div .selected { display: block; }
+.span-bl { display: block; margin-top: 13px; }
+.ul-border { border: 1px solid #ccc; padding: 0px; margin: 0px; }
+#content-div .li-style { margin-top: 0; border-bottom: 1px  dashed #666666; height: 70px; line-height: 70px; overflow: hidden; }
+#content-div .span-style { font-family: "微软雅黑"; font-size: 14px; display: block; float: left; max-width: 68%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#content-div .span-style-time { font-family: 微软雅黑; font-size: 12px; display: block; float: left; }
+#Content img { max-width: 80%; }
+#content-div .p0 img { max-width: 80%; }
+#content-div .span-style-a { display: block; float: left; margin-top: 40px; margin-left: 48px; padding: 2px; border: 1px solid #ccc; }
+
+
+#Case div { display: none; }
+#Case .selected { display: block; }
+.span-bl { display: block; margin-top: 13px; }
+.ul-border { border: 1px solid #ccc; padding: 0px; margin: 0px; }
+#Case .li-style { margin-top: 0; border-bottom: 1px  dashed #666666; height: 70px; line-height: 70px; overflow: hidden; }
+#Case .span-style { font-family: "微软雅黑"; font-size: 14px; display: block; float: left; max-width: 68%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#Case .span-style-time { font-family: 微软雅黑; font-size: 12px; display: block; float: left; }
+#Content img { max-width: 80%; }
+#Case .p0 img { max-width: 80%; }
+#Case .span-style-a { display: block; float: left; margin-top: 40px; margin-left: 48px; padding: 2px; border: 1px solid #ccc; }
+
+.bacg { display: block !important; position: absolute; bottom: 0px; margin: 0px auto; width: 100%; text-align: center; line-height: 25px; background: rgba(0, 0, 0, 0.29) none repeat scroll 0% 0%; color: #fff; }
+.biaoti { font-size: 18px; background: #fbfbfb; border: 1px solid #e5e5e5; color: #000; padding: 10px 8px 10px 20px; }
+
+/*****分页*****/
+.pagination { display: block !important; text-align: left; margin-right: 25px; margin: 14px 10px 0px 0px; }
+.pagination { text-align: center; float: right; }
+.pagination ul { display: inline-block; margin-bottom: 0px; border-radius: 4px; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); }
+.pagination ul > li:first-child > a, .pagination ul > li:first-child > span { border-left-width: 1px; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.pagination ul > li > a, .pagination ul > li > span { border-left-width: 1px; margin: 0px 5px; color: #000; }
+.pagination ul > li > a, .pagination ul > li > span { float: left; padding: 4px 12px; line-height: 20px; text-decoration: none; background-color: #FFF; border-width: 1px 1px 1px 0px; border-style: solid; border-color: #DDD; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; }
+.pre { color: #CCC !important; background-color: #FFF !important; }
+.pagination ul > li { display: inline; }
+.pagination #setpage li.active a { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination #setpage li a:hover { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination ul > li > a:focus { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination ul > .active > a, .pagination ul > .active > span { color: #FFF; cursor: default; }
+.turnNum { width: 25px; line-height: 25px; }
+.pagination button { height: 30px; border-radius: 4px; border: 1px solid #999; background: #F0F0F0 none repeat scroll 0% 0%; color: #333; font-size: 13px; padding: 0px 10px 2px; font-family: "微软雅黑", sans-serif; }
+.pagination ul > li > a, .pagination ul > li > span { border-left-width: 1px; margin: 0px 5px; color: #000; }
+.nex { color: #CCC !important; background-color: #FFF !important; }
+.pagination input { background-color: #FFF; border: 1px solid #CCC; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset; transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s; display: inline-block; height: 30px; width: 40px; padding: 4px 6px; margin-bottom: 10px; font-size: 14px; line-height: 20px; color: #555; vertical-align: middle; border-radius: 4px; }
+.pagination1 { display: block !important; text-align: center; margin-right: 25px; margin: 14px 10px 0px 0px; }
+.pagination1 { text-align: center; float: right; }
+.pagination1 ul { display: inline-block; margin-bottom: 0px; border-radius: 4px; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); }
+.pagination1 ul > li:first-child > a, .pagination1 ul > li:first-child > span { border-left-width: 1px; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.pagination1 ul > li > a, .pagination1 ul > li > span { border-left-width: 1px; margin: 0px 5px; color: #000; }
+.pagination1 ul > li > a, .pagination1 ul > li > span { float: left; padding: 4px 12px; line-height: 20px; text-decoration: none; background-color: #FFF; border-width: 1px 1px 1px 0px; border-style: solid; border-color: #DDD; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; }
+.pre { color: #CCC !important; background-color: #FFF !important; }
+.pagination1 ul > li { display: inline; }
+.pagination1 #setpage1 li.active a { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination1 #setpage1 li a:hover { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination1 ul > li > a:focus { color: #FFF; background: none repeat scroll 0% 0% #999; }
+.pagination1 ul > .active > a, .pagination1 ul > .active > span { color: #FFF; cursor: default; }
+.turnNum { width: 25px; line-height: 25px; }
+.pagination1 button { height: 30px; border-radius: 4px; border: 1px solid #999; background: #F0F0F0 none repeat scroll 0% 0%; color: #333; font-size: 13px; padding: 0px 10px 2px; font-family: "微软雅黑", sans-serif; }
+.pagination1 ul > li > a, .pagination1 ul > li > span { border-left-width: 1px; margin: 0px 5px; color: #000; }
+.nex { color: #CCC !important; background-color: #FFF !important; }
+.pagination1 input { background-color: #FFF; border: 1px solid #CCC; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset; transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s; display: inline-block; height: 30px; width: 40px; padding: 4px 6px; margin-bottom: 10px; font-size: 14px; line-height: 20px; color: #555; vertical-align: middle; border-radius: 4px; }
+#listnews div { display: block; }
+#main-nav>li:first-child a { font-weight: bold; }
+#main-nav a { font-weight: normal; }
+#Content p { line-height: 25px; }

@@ -1,0 +1,38 @@
+html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti; margin: 0; padding: 0; }
+.main-nav { margin-left: 1px; }
+.main-nav.nav-tabs.nav-stacked > li { }
+.main-nav.nav-tabs.nav-stacked > li > a { padding: 10px 8px; padding-left: 20px; font-size: 12px; font-weight: 600; color: #333333; background: #E9E9E9; background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FAFAFA), color-stop(100%, #E9E9E9)); background: -webkit-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -o-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -ms-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')"; border: 1px solid #e5e5e5;        /*border-radius: 4px;*/ }
+.main-nav.nav-tabs.nav-stacked > li > a > span { color: #4A515B; }
+.main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover { color: #4d52a7; background: #e4eaf5; padding: 10px 8px 10px 17px; border-left: 4px solid #afbed1; }
+.main-nav.nav-tabs.nav-stacked > li { margin-bottom: 0px; margin-top: -1px; }
+.nav-header.collapsed > span.glyphicon-chevron-toggle:before { content: "\e080"; }
+.nav-header > span.glyphicon-chevron-toggle:before { content: "\e114"; }
+footer.duomi-page-footer { background-color: white; }
+footer.duomi-page-footer .beta-message { color: #a4a4a4; }
+footer.duomi-page-footer .beta-message a { color: #53a2e4; }
+footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inline li { color: #a4a4a4; padding-bottom: 30px; }
+a:focus { outline: none }
+.main-nav { margin-left: 1px; }
+footer.duomi-page-footer { background-color: white; }
+footer.duomi-page-footer .beta-message { color: #a4a4a4; }
+footer.duomi-page-footer .beta-message a { color: #53a2e4; }
+footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inline li { color: #a4a4a4; padding-bottom: 30px; }
+
+/*********************************************自定义部分*********************************************/
+.secondmenu a { font-size: 12px; font-weight: 600; color: #333333; border: 1px solid #ccc; background: #fff; border-top: 0px; }
+.secondmenu > li > a:hover { background-color: #e4eaf5; color: #4d52a7; }
+.secondmenu li.active { background-color: #6f7782; border-color: #428bca; }
+.secondmenu li.active > a { color: #ffffff; }
+.navbar-static-top { background-color: #fff; margin-bottom: 5px; width: 100%; }
+.navbar-brand { background: url('http://static-res.ruyo.net/ruyo_net_w_32.png') no-repeat 10px 8px; display: inline-block; vertical-align: middle; padding-left: 50px; color: #fff; }
+.navbar-brand:hover { color: #fff; }
+.collapse.glyphicon-chevron-toggle, .glyphicon-chevron-toggle:before { content: "\e113"; }
+.collapsed.glyphicon-chevron-toggle:before { content: "\e114"; }
+.container-body { max-width: 1200px; width: 100%; margin-top: 65px; }
+#Content *{color: #666;}
+#Content img { max-width: 80%; }
+.col-md-3-pad { padding-left: 0; }
+.nav-tabs > li > a { border-radius: 0px 0px 0 0; margin-right: 0px; }
+#content-div div { display: none; }
+#content-div .selected { display: block; }

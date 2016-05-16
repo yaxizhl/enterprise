@@ -1,0 +1,72 @@
+﻿<footer class="footer-mobile hidd-foot">
+    <div class="left">
+        <p><a href="http://www.appcan.cn/terms_service/aboutus.html">关于我们</a> | <a href="http://enterprise.appcan.cn/news?itemTemplateId=95">新闻活动</a> | <a href="http://www.appcan.cn/terms_service/joinus.html">诚征英才</a>
+            <br> <a href="http://www.appcan.cn/terms_service/linkus.html">联系我们</a>  | <a href="http://www.appcan.cn/terms_service/lawstatement.html">法律声明</a> | <a href="http://www.appcan.cn/terms_service/links.html">合作伙伴</a></p>
+        <img src="http://www.appcan.cn/appcan-mobile/images/logo2.jpg" alt="">
+    </div>
+    <ul class="right">
+        <li><img src="http://www.appcan.cn/appcan-mobile/images/ewm1.jpg" alt="">
+            <p>AppCan官方微信</p>
+        </li>
+        <li><img src="http://www.appcan.cn/appcan-mobile/images/ewm2.jpg" alt="">
+            <p>正益工场官方微信</p>
+        </li>
+    </ul>
+    <div class="bot">正益移动互联科技股份有限公司版权所有
+        <br>京ICP备11006447号 京公网安备:11010802018489</div>
+</footer>
+<div id="footer" class="footer">
+    <div class=" container-footer" style="max-width:1200px;padding:0px;margin-left:auto;margin-right:auto;width:100%;">
+        <div style="margin-left:auto;margin-right:auto"><span class="span-logo" style="margin-left:5px"></span><span class="span-tel" style="font-size:24px;color:#fff;font-weight:blod;">400-040-1766</span><span class="font-style span-style-tel col-md-9" style="margin-left:5px">正益移动互联科技股份有限公司版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备11006447号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京公网安备:11010802018489</span>
+            <ul>
+                <li><a href="http://www.appcan.cn/terms_service/aboutus.html" class="font-style li-a-style">关于我们</a></li>
+                <li><span style="color:#fff">|</span><a href="http://enterprise.appcan.cn/news" class="font-style li-a-style">新闻活动</a></li>
+                <li><span style="color:#fff">|</span><a href="http://www.appcan.cn/terms_service/joinus.html" class="font-style li-a-style">诚聘英才</a></li>
+                <li><span style="color:#fff">|</span><a href="http://www.appcan.cn/terms_service/linkus.html" class="font-style li-a-style">联系我们</a></li>
+                <li><span style="color:#fff">|</span><a href="http://www.appcan.cn/terms_service/lawstatement.html" class="font-style li-a-style">法律声明</a></li>
+                <li><span style="color:#fff">|</span><a href="http://www.appcan.cn/terms_service/links.html" class="font-style li-a-style">合作伙伴</a></li>
+            </ul>
+            <div class="weima"><img src="http://www.appcan.cn/imag/zywork_weixin.jpg" alt="SDK移动应用开发系统" style="margin-bottom:10px;width: 98px;height: 98px;">
+                <br><span style="font-size:12px;color:#fff;marin-top:10px;">正益工场官方微信</span></div>
+            <div class="weima"><img src="http://www.appcan.cn/css/imgs/2weima.jpg" alt="SDK移动应用开发系统" style="margin-bottom:10px;width: 98px;height: 98px;">
+                <br><span style="font-size:12px;color:#fff;marin-top:10px;">AppCan官方微信</span></div>
+            <div style="display:none">
+                <script src="http://s96.cnzz.com/stat.php?id=3774146&amp;web_id=3774146" language="JavaScript"></script>
+                <script src="http://c.cnzz.com/core.php?web_id=3774146&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=3774146" target="_blank" title="站长统计" style="display: block; width: 0px; height: 0px; overflow: hidden;">站长统计</a></div>
+        </div>
+    </div>
+</div>
+<script>
+$(function() {
+    LoadCSS("http://www.appcan.cn/css/footer-tomobi.css");
+    LoadCSS("http://www.appcan.cn/css/newHeader-tomobi.css")
+    var screenWidthInFooter = $(window).width();
+    if (screenWidthInFooter<992) {
+        $(".footer-mobile").removeClass("hidd-foot");
+        $("#footer").addClass("hidd-foot");
+        console.log(screenWidthInFooter)
+    }else{
+        $("#footer").removeClass("hidd-foot")
+    }
+
+    $(window).resize(function () {
+        var screenWidthInFooter1 = $(window).width();
+        if (screenWidthInFooter1<992) {
+            $(".footer-mobile").removeClass("hidd-foot");
+            $("#footer").addClass("hidd-foot")
+            console.log(screenWidthInFooter)
+        }else{
+            $("#footer").removeClass("hidd-foot")
+            $(".footer-mobile").addClass("hidd-foot")
+        }
+
+    })
+    function LoadCSS(url){
+        var s = document.createElement("LINK");
+        s.rel = "stylesheet";
+        s.type = "text/css";
+        s.href = url;
+        document.getElementsByTagName("HEAD")[0].appendChild(s);
+    }
+})
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <title id="aapp">
+        解决方案-客户名录
+    </title>
+    <meta name="keywords" content="MEAP移动应用开发平台,EMM移动应用管理平台,AppCan企业移动平台,移动云平台,SDK,MAS,MBaaS,MCM,MAM,MEM" />
+    <meta name="description" content="AppCan产品&服务包括MEAP移动应用开发平台、EMM移动应用管理平台、企业移动平台安全体系、移动云平台等。">
+    <meta name="author" content="">
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+    <link href="http://appcan.cn/css/newHeader-tomobi.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/footer-tomobi.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/appcanstyle.css" rel="stylesheet" />
+    <link href="http://appcan.cn/css/appcanmain.css" rel="stylesheet" />
+    <link href="/css/solution.css" rel="stylesheet">
+    <link href="/css/newslist.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://appcan.cn/js/sso.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="to-scroll">
+        <% include ./FooterAndHeader/newHeader-tomobi.html %>
+        <div class="navbar navbar-duomi navbar-static-top" role="navigation">
+            <div class=" navbar-end" >
+            </div>
+        </div>
+        <div class="container container-body ">
+            <div class="row">
+                <div class="col-md-3 col-md-3-pad hidden-sm hidden-xs" style="padding-left:15px;padding-right:15px">
+                    <% include solution_menu.html %>
+                </div>
+                <div id="CustomerContent" class="col-md-9" style="">
+                    <ul>
+                    <% for (var i = 1; i < 46; i++) { 
+                            i=(i<10)?('00'+i):('0'+i);
+                    %>
+                        <li class="mart"><a><img src="/images/<%- i %>.png" alt=""></a></li>
+                    <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <% include ./FooterAndHeader/footer-tomobi.html %>
+    </div>
+</body>
+
+</html>
+
+<script>
+$(function () {
+    var u=location.href;
+    var reg=/\?id\=(\d+)$/;
+    reg.test(u);
+    var mc=RegExp.$1;
+    
+
+    if ((mc==329)||(mc==328)||(mc==270)||(mc==269)||(mc==280)||(mc==140)) {$('#systemSetting').addClass('in');$('.xiala1').removeClass('collapsed').children().removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
+    $('.nav-header').click(function(event) {
+
+        if ($(this).hasClass('collapsed')) {
+            $(this).children().removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+        }else{
+            $(this).children().removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+        }
+        
+    });
+
+})
+</script>
