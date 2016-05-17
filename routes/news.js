@@ -133,7 +133,7 @@ router.get('/:lanmu/:zid', function(req, res, next) {
                     res.render('news_details', { status: '0',data: rows });
                 };
             } else {
-                res.send('没有数据');
+                res.redirect('http://www.appcan.cn/error/404.html');
             };
         });
         connection.release();
