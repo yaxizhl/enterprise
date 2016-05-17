@@ -34,7 +34,7 @@ router.get('/:lanmu', function(req, res, next) {
                         res.render('solution', { status: '0', data: rows });
                     };
                 }else{
-                    res.json({ status: '1', message: '未查到数据' });
+                    res.redirect('http://www.appcan.cn/error/404.html');
                 };
             });
         }else if (itemTemplateId==85) {//经典案例
@@ -42,16 +42,17 @@ router.get('/:lanmu', function(req, res, next) {
             + templateName[1] + " WHERE son_template_id = " + itemTemplateId + " and del=0 and status =1 ";
             sql+=" order by created_at desc limit " + firstResults + "," + count;
             connection.query(sql,function(err,rows) {
-                if (err) throw err;
+                if (err)return res.redirect('http://www.appcan.cn/error/404.html');
                 if (rows.length>0) {
                     var sql_num = "SELECT id from " 
                     + templateName[1] + " WHERE son_template_id = " + itemTemplateId + " and del=0 and status =1 ";
                     connection.query(sql_num,function(err,rows2) {
                         if (err) throw err;
-                        if (Math.ceil(rows2.length / count)<page)return res.send('err page!');                 
+                        var total=Math.ceil(rows2.length / count);
+                        if (total<page||page<1)return res.redirect('http://www.appcan.cn/error/404.html');                
                         if (x == 1) {
                             res.json({
-                                total: Math.ceil(rows2.length / count),
+                                total: total,
                                 template_name: templateName[1],
                                 itemTemplateId: itemTemplateId,
                                 lanmu:itemTemplateId,
@@ -61,7 +62,7 @@ router.get('/:lanmu', function(req, res, next) {
                             });
                         } else {
                             res.render('solution_j', {
-                                total: Math.ceil(rows2.length / count),
+                                total: total,
                                 template_name: templateName[1],
                                 itemTemplateId: itemTemplateId,
                                 lanmu:itemTemplateId,
@@ -71,7 +72,7 @@ router.get('/:lanmu', function(req, res, next) {
                         };                     
                     });
                 }else{
-                    res.json({ status: '1', message: '未查到数据' });
+                    res.redirect('http://www.appcan.cn/error/404.html');
                 };
             });
         }else if (itemTemplateId=='solution') {//客户名录
@@ -101,7 +102,7 @@ router.get('/:lanmu/:wen', function(req, res, next) {
                     res.render('solution_details', {lanmu:lanmu,data: rows});
                 };
             } else {
-                res.json({ status: '1', message: '未查到数据' });
+                res.redirect('http://www.appcan.cn/error/404.html');
             };
         });
         connection.release();

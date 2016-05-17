@@ -37,16 +37,17 @@ router.get('/:lanmu', function(req, res, next) {
             sql = "SELECT id,created_at,title,nearby,son_template_id,author,permission,status,del FROM template_base WHERE son_template_id = " + itemTemplateId + " and del=0";
             sql += " order by created_at desc limit " + firstResults + "," + count;
             connection.query(sql, function(err, rows2) { //获取当前页条目所有数据
-                if (err)return res.json({ status: '1', message: '未查到数据', error: err });
+                if (err)return res.redirect('http://www.appcan.cn/error/404.html');
                 if (rows2.length>0) {
                     //获取全部条目个数
                     sql_num = "select id from template_base WHERE son_template_id = " + itemTemplateId + " and del=0";
                     connection.query(sql_num, function(err, rows3) {
                         if (err) throw err;
-                        if (Math.ceil(rows3.length / count)<page) return res.send('err page!');
+                        var total=Math.ceil(rows3.length / count);
+                        if (total<page||page<1)return res.redirect('http://www.appcan.cn/error/404.html');
                         if (x == 1) {
                             res.json({
-                                total: Math.ceil(rows3.length / count),
+                                total: total,
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
@@ -56,7 +57,7 @@ router.get('/:lanmu', function(req, res, next) {
                             });
                         } else {
                             res.render('news', {
-                                total: Math.ceil(rows3.length / count),
+                                total: total,
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
@@ -65,25 +66,23 @@ router.get('/:lanmu', function(req, res, next) {
                         };
                     });
                 }else{
-                    res.send('没有数据')
+                    res.redirect('http://www.appcan.cn/error/404.html');
                 }
             });
         } else if (itemTemplateId == 116) {
             sql = "SELECT id,created_at,content,case_name,propaganda_image_pc,propaganda_image_app,case_introduction,case_icon,industry,type,synchronized_3g2win,synchronized_app,synchronized_wechat,del,case_status,background_colour,son_template_id,status FROM template_case WHERE son_template_id = " + itemTemplateId + " and del=0 and status =1 ";
             sql += " order by created_at desc limit " + firstResults_6 + ",6"; //精彩活动每页显示6条
             connection.query(sql, function(err, rows2) {
-                if (err) {
-                    console.log(err);
-                    return res.json({ status: '1', message: '未查到数据', error: err })
-
-                } else {
+                if (err)return res.redirect('http://www.appcan.cn/error/404.html');
+                if(rows2.length>0) {
                     sql_num = "select id from template_case WHERE son_template_id = " + itemTemplateId + " and del=0 and status =1 ";
                     connection.query(sql_num, function(err, rows3) {
                         if (err) throw err;
-                        if (Math.ceil(rows3.length / count)<page)return res.send('err page!');
+                        var total=Math.ceil(rows3.length / 6);
+                        if (total<page||page<1)return res.redirect('http://www.appcan.cn/error/404.html');
                         if (x == 1) {
                             res.json({
-                                total: Math.ceil(rows3.length / 6),
+                                total: total,
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
@@ -93,7 +92,7 @@ router.get('/:lanmu', function(req, res, next) {
                             });
                         } else {
                             res.render('news_j', {
-                                total: Math.ceil(rows3.length / 6),
+                                total: total,
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
@@ -103,6 +102,8 @@ router.get('/:lanmu', function(req, res, next) {
 
 
                     });
+                }else{
+                    return res.redirect('http://www.appcan.cn/error/404.html');
                 };
             });
         };
@@ -118,7 +119,7 @@ router.get('/:lanmu/:zid', function(req, res, next) {
     var cn = req.query.cn;
     var x = req.query.x || '';
     if (!zid||!lanmus.some(function (x) {return x==lanmu})) {
-        return res.redirect('http://www.appcan.cn/error/404.html')
+        return res.redirect('http://www.appcan.cn/error/404.html');
     } //无法转换成数字类型则返回404，禁止mysql查询
     var sql = "SELECT * FROM template_base WHERE id = " + zid + " and del=0";
     pool.getConnection(function(err, connection) {
@@ -142,7 +143,7 @@ router.get('/:lanmu/:zid', function(req, res, next) {
 
 
 router.get('/', function(req, res) { //缺省跳转
-    res.redirect('/news/gfxw')
+    res.redirect('news/hyzx')
 })
 
 

@@ -92,7 +92,7 @@
                     	<span style="color:#666666" class="span-bl"><a style="color:#666666;font:strong;margin-left:10px;">新闻活动</a>&nbsp;&gt;<a style="color:#666666"><%= cn %></a></span>
                     	<span class="span-bl">
                     		<ul id="main-nav" class="main-nav nav nav-tabs nav-stacked ul-border" style="">
-                    			<li style="background:#e4eaf5;height:62px;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;"><strong><h4 style=" font-family:微软雅黑;font-weight: 700;margin:0px;line-height:62px;margin-left:20px;">行业资讯</h4></strong></li>
+                    			<li style="background:#e4eaf5;height:62px;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;"><strong><h4 style=" font-family:微软雅黑;font-weight: 700;margin:0px;line-height:62px;margin-left:20px;"><%= cn %></h4></strong></li>
                     			<% data.forEach(function(datas){ %>
                     			<li class="li-style" style="margin-left:20px;margin-right:20px;"><span class="span-style"><a href="<%= lanmu %>/<%= datas.id %>" target="_blank" style="font-family:微软雅黑;color:#494949"><%- datas.title %></a></span><span class="span-style" style="float:right;color:#999999;font-family:Arial"><%- datas.created_at.getFullYear()+'-'+fm(datas.created_at.getMonth()+1)+'-'+fm(datas.created_at.getDate()) %></span></li>
                     			<% }) %>
