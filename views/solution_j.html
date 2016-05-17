@@ -31,8 +31,8 @@
 <%     
     var t = total;
     var p = parseInt(pages);
-    var path="/solution?id="+itemTemplateId
-        path+="&page="
+    var path="/solution/"+lanmu
+        path+="?page="
     var dom = '<li><a href="'+path+((p==1)?1:(p-1))+'">&lt;</a></li><li><a href="'+path+'">1</a></li>';  
 
     if (t < 9) {
@@ -93,7 +93,7 @@
                             </li>
                             <% for(var i=data.length-1;i>-1;i--){ %>
                             <span class="span-style span-style-a" style="position: relative;">
-                                <a href="/solution/details?case=<%= data[i].id %>" target="_blank" style="font-family:微软雅黑;color:#494949">
+                                <a href="/solution/<%= lanmu %>/<%= data[i].id %>" target="_blank" style="font-family:微软雅黑;color:#494949">
                                     <img src="http://3g2win.com/3g2winapi/getCImg?img=<%= data[i].propaganda_image_pc %>" style="width:260px;height:180px" alt="">
                                 </a>
                                     <div class="bacg"><%= data[i].case_name %></div>
@@ -116,8 +116,6 @@
                 </div>
             </div>
         </div>
-        <!-- 百度统计代码 -->
-
         <% include ./FooterAndHeader/footer-tomobi.html %>
     </div>
 <script>
@@ -130,7 +128,7 @@ $('#confirm').on('click',function () {
     var host=location.host;
     var p=$('#pagenum').val();
     if (p>0 && p <= <%= total %>) {
-        location.href='http://'+host+'/news?itemTemplateId=94&page='+p;
+        location.href=location.pathname+'?page='+p;
     }else{alert('请输入正确的页码！')}
 })
 </script>

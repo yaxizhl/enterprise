@@ -4,29 +4,37 @@ var pool = require('./sql');
 
 /* GET home page. */
 
-router.get('/index',function (req,res,next) {
-    res.render('productSystem_index', { title: "产品&服务"});
-    
+router.get('/index', function(req, res, next) {
+    res.render('productSystem_index', { title: "产品&服务" });
+
 })
 
-router.get('/:num', function(req, res, next) { 
-	var id=req.params.num;
-	    pool.getConnection(function(err, connection) {
-        if (err) { res.json({ status: '1', message: '连接出错' });throw err }; //确认数据库连接是否正确
-        connection.query("select * from template_base where id="+id+" and del=0", function(err, rows) {
+router.get('/:num', function(req, res, next) {
+    var id = parseInt(req.params.num); //将参数转换成数字类型
+    if (!id) {
+        return res.redirect('http://www.appcan.cn/error/404.html'); } //无法转换成数字类型返回404，防止下一步的mysql报错
+    pool.getConnection(function(err, connection) {
+        if (err) { res.json({ status: '1', message: '连接出错' });
+            throw err }; //确认数据库连接是否正确
+        connection.query("select * from template_base where id=" + id + " and del=0", function(err, rows) {
             if (err) {
-                throw err; }
+                throw err;
+            }
             if (rows.length > 0) {
                 if (req.query.x == 1) {
-                    return res.json({ title: rows[0].title, test: rows[0].content, query: req.query }) }
+                    return res.json({ title: rows[0].title, test: rows[0].content, query: req.query })
+                }
                 res.render('productSystem', { title: rows[0].title, test: rows[0].content });
             } else {
-                res.redirect('http://www.appcan.cn/error/404.html')
+                res.redirect('http://www.appcan.cn/error/404.html');
             }
         });
         connection.release();
     })
 });
 
+router.get('/', function(req, res) { //缺省跳转
+    res.redirect('/productSystem/index');
+});
 
 module.exports = router;

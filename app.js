@@ -7,10 +7,9 @@ var bodyParser = require('body-parser');
 var ejs = require('ejs');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var productSystem = require('./routes/productSystem');//路由到产品体系
-var news = require('./routes/news');//路由到产品体系
-var solution = require('./routes/solution');//路由到产品体系
+var productSystem = require('./routes/productSystem');//产品体系
+var news = require('./routes/news');//新闻活动
+var solution = require('./routes/solution');//解决方案
 
 var app = express();
 
@@ -30,7 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/productSystem', productSystem);//产品体系
 app.use('/news', news);//产品体系
 app.use('/solution', solution);//产品体系
-app.use('/users', users);
 app.use('/', routes);
 
 // catch 404 and forward to error handler

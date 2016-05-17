@@ -32,8 +32,8 @@
 <%     
     var t = total;
     var p = parseInt(pages);
-    var path="/news?itemTemplateId="+itemTemplateId
-        path+="&page="
+    var path=lanmu;
+        path+="?page="
     var dom = '<li><a href="'+path+((p==1)?1:(p-1))+'">&lt;</a></li><li><a href="'+path+'">1</a></li>';  
 
     if (t < 9) {
@@ -131,7 +131,7 @@ $('#confirm').on('click',function () {
     var host=location.host;
     var p=$('#pagenum').val();
     if (p>0 && p <= <%= total %>) {
-        location.href='http://'+host+'/news?itemTemplateId=94&page='+p;
+        location.href=location.pathname+'?page='+p;
     }else{alert('请输入正确的页码！')}
 })
 </script>

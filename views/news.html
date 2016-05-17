@@ -32,8 +32,8 @@
 <%     
     var t = total;
     var p = parseInt(pages);
-    var path="news?itemTemplateId="+itemTemplateId
-        path+="&page="
+    var path=lanmu;
+        path+="?page="
     var dom = '<li><a href="'+path+((p==1)?1:(p-1))+'">&lt;</a></li><li><a href="'+path+'">1</a></li>';  
 
     if (t < 9) {
@@ -94,7 +94,7 @@
                     		<ul id="main-nav" class="main-nav nav nav-tabs nav-stacked ul-border" style="">
                     			<li style="background:#e4eaf5;height:62px;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;"><strong><h4 style=" font-family:微软雅黑;font-weight: 700;margin:0px;line-height:62px;margin-left:20px;">行业资讯</h4></strong></li>
                     			<% data.forEach(function(datas){ %>
-                    			<li class="li-style" style="margin-left:20px;margin-right:20px;"><span class="span-style"><a href="news/details/<%= datas.id %>" target="_blank" style="font-family:微软雅黑;color:#494949"><%- datas.title %></a></span><span class="span-style" style="float:right;color:#999999;font-family:Arial"><%- datas.created_at.getFullYear()+'-'+fm(datas.created_at.getMonth()+1)+'-'+fm(datas.created_at.getDate()) %></span></li>
+                    			<li class="li-style" style="margin-left:20px;margin-right:20px;"><span class="span-style"><a href="<%= lanmu %>/<%= datas.id %>" target="_blank" style="font-family:微软雅黑;color:#494949"><%- datas.title %></a></span><span class="span-style" style="float:right;color:#999999;font-family:Arial"><%- datas.created_at.getFullYear()+'-'+fm(datas.created_at.getMonth()+1)+'-'+fm(datas.created_at.getDate()) %></span></li>
                     			<% }) %>
 
 
@@ -129,7 +129,7 @@ $('#confirm').on('click',function () {
     var host=location.host;
     var p=$('#pagenum').val();
     if (p>0 && p <= <%= total %>) {
-        location.href='http://'+host+'/news?itemTemplateId=94&page='+p;
+        location.href=location.pathname+'?page='+p;
     }else{alert('请输入正确的页码！')}
 })
 </script>
