@@ -5,7 +5,7 @@ var pool = require('./sql');
 /* GET home page. */
 
 router.get('/index', function(req, res, next) {
-    res.render('productSystem_index', { title: "产品&服务" });
+    res.render('productSystem_index', { title: "产品&服务",id:'' });
 
 })
 
@@ -21,9 +21,9 @@ router.get('/:num', function(req, res, next) {
             }
             if (rows.length > 0) {
                 if (req.query.x == 1) {
-                    return res.json({ title: rows[0].title, test: rows[0].content, query: req.query })
+                    return res.json({id:id, title: rows[0].title, test: rows[0].content, query: req.query })
                 }
-                res.render('productSystem', { title: rows[0].title, test: rows[0].content });
+                res.render('productSystem', {id:id, title: rows[0].title, test: rows[0].content });
             } else {
                 res.redirect('http://www.appcan.cn/error/404.html');
             }

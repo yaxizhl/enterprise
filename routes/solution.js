@@ -29,9 +29,9 @@ router.get('/:lanmu', function(req, res, next) {
                 if (err) throw err;
                 if (rows.length>0) {
                     if (x==1) {
-                        res.json({ status: '0', data: rows, sql: sql })
+                        res.json({ status: '0', data: rows, sql: sql,id:itemTemplateId })
                     }else{
-                        res.render('solution', { status: '0', data: rows });
+                        res.render('solution', { status: '0', data: rows,id:itemTemplateId });
                     };
                 }else{
                     res.redirect('http://www.appcan.cn/error/404.html');
