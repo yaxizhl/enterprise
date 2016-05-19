@@ -53,7 +53,8 @@ router.get('/:lanmu', function(req, res, next) {
                                 pages: page,
                                 data: rows2,
                                 sql: sql,
-                                sql_num: sql_num
+                                sql_num: sql_num,
+                                id:''
                             });
                         } else {
                             res.render('news', {
@@ -61,7 +62,8 @@ router.get('/:lanmu', function(req, res, next) {
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
-                                data: rows2
+                                data: rows2,
+                                id:''
                             });
                         };
                     });
@@ -88,7 +90,8 @@ router.get('/:lanmu', function(req, res, next) {
                                 pages: page,
                                 data: rows2,
                                 sql: sql,
-                                sql_num: sql_num
+                                sql_num: sql_num,
+                                id:''
                             });
                         } else {
                             res.render('news_j', {
@@ -96,7 +99,8 @@ router.get('/:lanmu', function(req, res, next) {
                                 itemTemplateId: itemTemplateId,
                                 lanmu:req.params.lanmu,
                                 pages: page,
-                                data: rows2
+                                data: rows2,
+                                id:''
                             });
                         };
 
@@ -128,9 +132,9 @@ router.get('/:lanmu/:zid', function(req, res, next) {
             if (err) throw err;
             if (rows.length > 0) {
                 if (x == 1) {
-                    res.json({ status: '0', message: '查询成功', channal: cn, data: rows, sql: sql, zid: zid,lanmu:lanmu });
+                    res.json({ status: '0', message: '查询成功', channal: cn, data: rows, sql: sql, zid: zid,lanmu:lanmu,id:'' });
                 } else {
-                    res.render('news_details', { status: '0',data: rows });
+                    res.render('news_details', { status: '0',data: rows ,id:''});
                 };
             } else {
                 res.redirect('http://www.appcan.cn/error/404.html');
@@ -143,7 +147,7 @@ router.get('/:lanmu/:zid', function(req, res, next) {
 
 
 router.get('/', function(req, res) { //缺省跳转
-    res.redirect('news/hyzx')
+    res.redirect('news/hyzx');
 })
 
 

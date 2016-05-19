@@ -53,6 +53,7 @@ router.get('/:lanmu', function(req, res, next) {
                         if (x == 1) {
                             res.json({
                                 total: total,
+                                id:itemTemplateId,
                                 template_name: templateName[1],
                                 itemTemplateId: itemTemplateId,
                                 lanmu:itemTemplateId,
@@ -63,6 +64,7 @@ router.get('/:lanmu', function(req, res, next) {
                         } else {
                             res.render('solution_j', {
                                 total: total,
+                                id:itemTemplateId,
                                 template_name: templateName[1],
                                 itemTemplateId: itemTemplateId,
                                 lanmu:itemTemplateId,
@@ -97,9 +99,9 @@ router.get('/:lanmu/:wen', function(req, res, next) {
             if (err) throw err;
             if (rows.length > 0) {
                 if (x == 1) {
-                    res.json({ status: '0', message: '查询成功',lanmu:lanmu, data: rows, sql: sql});
+                    res.json({ status: '0', message: '查询成功',lanmu:lanmu,id:'',data: rows, sql: sql});
                 } else {
-                    res.render('solution_details', {lanmu:lanmu,data: rows});
+                    res.render('solution_details', {lanmu:lanmu,id:'',data: rows});
                 };
             } else {
                 res.redirect('http://www.appcan.cn/error/404.html');
