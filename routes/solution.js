@@ -78,7 +78,7 @@ router.get('/:lanmu', function(req, res, next) {
                 };
             });
         }else if (itemTemplateId=='solution') {//客户名录
-            res.render('solution_html',{});
+            res.render('solution_html',{id:''});
         } else {
             res.redirect('http://www.appcan.cn/error/404.html');
         };
