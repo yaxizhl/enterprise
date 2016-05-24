@@ -7,11 +7,12 @@ router.get('/:lanmu', function(req, res, next) {
     var lm=['329', '328', '270', '269', '268', '140'];
     var templateName=['template_base','template_case']
     var itemTemplateId = req.params.lanmu; //获取栏目参数
-    if (!lanmus.some(function(x) {return x == itemTemplateId })) {
+    var page = req.query.page|| 1;
+    if (!lanmus.some(function(x) {return x == itemTemplateId }) ||isNaN(page)) {
         return res.redirect('http://www.appcan.cn/error/404.html');
     }
 
-    var page = req.query.page || 1;
+    
     var count = 9;//经典案例每页9个条目
     var firstResults = (page - 1) * count;//当前页条目起始位置
     var x = req.query.x;//调试用
@@ -92,7 +93,7 @@ router.get('/:lanmu/:wen', function(req, res, next) {
     var id = req.params.wen;
     var x = req.query.x||'';
     var sql = "SELECT * FROM template_case WHERE id = " + id + " and del=0";
-    if (lanmu!=85) return res.redirect('http://www.appcan.cn/error/404.html');
+    if (lanmu!=85||isNaN(id)) return res.redirect('http://www.appcan.cn/error/404.html');
     pool.getConnection(function(err, connection) {
         if (err) throw err;
         connection.query(sql, function(err, rows) {

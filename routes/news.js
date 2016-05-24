@@ -18,7 +18,7 @@ router.get('/:lanmu', function(req, res, next) {
     var templateName = ''; //联表名
     //var sonTemplateName = '';
 
-    var page = req.query.page || 1; //默认显示第一页
+    var page = parseInt(req.query.page) || 1; //默认显示第一页
     var firstResults = 0; //当前页条目起始位置
     var x = req.query.x; //调试参数
 
@@ -117,12 +117,12 @@ router.get('/:lanmu', function(req, res, next) {
 
 //详情页
 router.get('/:lanmu/:zid', function(req, res, next) {
-    var zid = parseInt(req.params.zid); //将参数转换成数字类型
+    var zid = req.params.zid; 
     var lanmu=req.params.lanmu;
     var lanmus=['hyzx','gfxw','jchd']
     var cn = req.query.cn;
     var x = req.query.x || '';
-    if (!zid||!lanmus.some(function (x) {return x==lanmu})) {
+    if (isNaN(zid)||!lanmus.some(function (x) {return x==lanmu})) {
         return res.redirect('http://www.appcan.cn/error/404.html');
     } //无法转换成数字类型则返回404，禁止mysql查询
     var sql = "SELECT * FROM template_base WHERE id = " + zid + " and del=0";
