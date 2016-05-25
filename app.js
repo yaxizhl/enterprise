@@ -27,8 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/productSystem', productSystem);//产品体系
-app.use('/news', news);//产品体系
-app.use('/solution', solution);//产品体系
+app.use('/news', news);//新闻活动
+app.use('/solution', solution);//解决方案
 app.use('/', routes);
 
 // catch 404 and forward to error handler

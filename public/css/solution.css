@@ -20,7 +20,7 @@ footer.duomi-page-footer .beta-message a { color: #53a2e4; }
 footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inline li { color: #a4a4a4; padding-bottom: 30px; }
 
 /*********************************************自定义部分*********************************************/
-.navbar-end { background: rgb(107, 112, 190); width: 100%; height: 133px; }
+.navbar-end {width: 100%;background: url(/images/zzbanner2.jpg) no-repeat #257CEF;background-position: center;height: 200px;}
 .secondmenu a { font-size: 12px; /*font-weight: 600;*/ color: #333333; border: 1px solid #ccc; background: #fff; border-top: 0px; }
 .secondmenu > li > a:hover { background-color: #e4eaf5; color: #4d52a7; }
 .secondmenu li.active { background-color: #6f7782; border-color: #428bca; }
