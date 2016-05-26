@@ -540,21 +540,24 @@ $(window).load(function(){
     $('#login').attr('href',lj+location.href);
 });
 
-//20160422 百度商桥
+
 
 var _hmt = _hmt || [];
+
+
+// //0525百度统计
+// (function() {
+//   var hm = document.createElement("script");
+//   hm.src = "//hm.baidu.com/hm.js?d1cb55eae9757438f24e73fdcedc27c5";
+//   var s = document.getElementsByTagName("script")[0]; 
+//   s.parentNode.insertBefore(hm, s);
+// })();
+
+//20160422 百度商桥
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?d2f8cf438a1c60b4c14e6983620b37ae";
   var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-
-//0525百度统计
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?d1cb55eae9757438f24e73fdcedc27c5";
-  var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
