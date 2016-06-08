@@ -100,3 +100,26 @@ footer.duomi-page-footer .list-inline a, footer.authenticated-footer .list-inlin
 #main-nav>li:first-child a { font-weight: bold; }
 #main-nav a { font-weight: normal; }
 #Content p { line-height: 25px; }
+
+
+
+#mypage{height:55px;background:#f9f9f9;margin-top:0;line-height: 54px;position: relative;}
+#mypage span{margin: 0 10px;}
+#mypage span.ij0{margin-left: 100px;}
+#mypage span.ij{margin-left: 5px;}
+#mypage a:hover{color: #007eca;}
+#mypage .jiathis_style{position: absolute;left: 5px;top: 18px;width: 82px;}
+
+#new-main-nav{margin-top:20px;}
+#new-main-nav .eq0{font-size:16px;background:#fbfbfb;border:1px solid #e5e5e5;color:#000;border-bottom:none; padding: 10px 8px 10px 20px;font-weight: bold;}
+#new-main-nav .eq0.add{font-size:14px;font-weight: normal;}
+#new-main-nav .eq{padding: 10px 8px;font-size: 12px; padding-left: 20px; font-size: 12px; color: #333333; background: #E9E9E9; background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FAFAFA), color-stop(100%, #E9E9E9)); background: -webkit-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -o-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: -ms-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); background: linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')"; border: 1px solid #e5e5e5;}
+#new-main-nav .eq.on,#new-main-nav .eq.on1{ color: #4d52a7; background: #e4eaf5; padding: 10px 8px 10px 17px; border-left: 4px solid #afbed1; }
+
+#new-main-nav .rat{border: 1px solid #E5E5E5;border-bottom:none;}
+#new-main-nav .ls a{font-size: 12px;}
+#new-main-nav .rat a{font-size: 12px;}
+#new-main-nav .asd1{height: 38px;padding-left:34px;display: block;line-height: 38px;border-top: 1px solid #E5E5E5;font-size: 12px;}
+#new-main-nav .asd1:first-child{border-top:none;}
+#new-main-nav .asd1.on{background-color:#e4eaf5;color:#4d52a7;}
+

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <title id="aapp">
-        <%= data[0].title %>
+        <%- data[0].title.replace(/\<aPpCan\/\>/g,'') %>
     </title>
     <meta name="keywords" content="MEAP移动应用开发平台,EMM移动应用管理平台,AppCan企业移动平台,移动云平台,SDK,MAS,MBaaS,MCM,MAM,MEM" />
     <meta name="description" content="AppCan产品&服务包括MEAP移动应用开发平台、EMM移动应用管理平台、企业移动平台安全体系、移动云平台等。">
@@ -59,11 +59,31 @@
                     	<span class="span-bl">
                     		<ul id="main-nav" class="main-nav nav nav-tabs nav-stacked" style="">
                                 <div style="text-align:center;display:block; font-size: 18px; font-weight: bold;">                      
-                                   <%= data[0].title %>
+                                   <%= data[0].title.replace(/&nbsp;((?=style\=)|(?=src)|(?=alt))/g,' ').replace(/\/3g2winapi/g,"http\:\/\/www\.3g2win\.com\/3g2winapi").replace(/\<aPpCan\/\>/g,'') %>
                                 </div>
                                 <div style="text-align:center;display:block;"><%= fm(data[0].created_at,'-') %></div>
                     			<%- data[0].content.replace(/&nbsp;((?=style\=)|(?=src)|(?=alt))/g,' ').replace(/\/3g2winapi/g,"http\:\/\/www\.3g2win\.com\/3g2winapi").replace(/\<aPpCan\/\>/g,'') %>
-                                <li style="height:54px;background:#f9f9f9;margin-top:0;"></li>
+                                <li id="mypage">
+                                    <span class="ij0"><a id="cut1" href="<% if(add.prev_id!=0){ %>/news/<%= lanmu %>/<%= add.prev_id %><%}else{%>javascript:;<%}%>" title="<%= add.prev_title.replace(/\<aPpCan\/\>/g,'')%>">上一篇：<%-add.prev_title.replace(/\<aPpCan\/\>/g,'') %></a></span> | <span class="ij"><a id="cut2" href="<% if(add.next_id!=0){ %>/news/<%= lanmu %>/<%= add.next_id %><%}else{%>javascript:;<%}%>"  title="<%= add.next_title.replace(/\<aPpCan\/\>/g,'')%>">下一篇：<%-add.next_title.replace(/\<aPpCan\/\>/g,'') %></a></span>
+
+                                    <!-- JiaThis Button BEGIN -->
+                                    <div class="jiathis_style">
+                                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a>
+                                    </div>
+                                    <script type="text/javascript" >
+                                    var jiathis_config={
+                                        summary:"",
+                                        siteNum:5,
+                                        sm:"tsina,weixin,cqq,qzone,copy",
+                                        shortUrl:false,
+                                        hideMore:true
+
+                                    }
+                                    </script>
+                                    <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+                                    <!-- JiaThis Button END -->
+                                </li>
+                                
                     		</ul>
                     	</span>
                     </div>
@@ -77,5 +97,13 @@
         <% include ./FooterAndHeader/footer-tomobi.html %>
     </div>
 </body>
-
+<script>
+    var cut1=$('#cut1').html();
+    var cut2=$('#cut2').html();
+    if(cut1.length>25){$('#cut1').html(cut1.slice(0,25)+'...')}
+    if(cut2.length>25){$('#cut2').html(cut2.slice(0,25)+'...')}
+    $('.jiathis_style').click(function(event) {
+        return false;
+    });
+</script>
 </html>

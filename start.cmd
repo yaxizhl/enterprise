@@ -1,1 +1,1 @@
-supervisor app.js
+supervisor ./bin/www

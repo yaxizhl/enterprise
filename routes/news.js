@@ -131,11 +131,7 @@ router.get('/:lanmu/:zid', function(req, res, next) {
         connection.query(sql, function(err, rows) {
             if (err) throw err;
             if (rows.length > 0) {
-                if (x == 1) {
-                    res.json({ status: '0', message: '查询成功', channal: cn, data: rows, sql: sql, zid: zid,lanmu:lanmu,id:'' });
-                } else {
-                    res.render('news_details', { status: '0',data: rows ,id:''});
-                };
+            	searchList(lanmu,zid,x,rows,cn,sql,connection,res);
             } else {
                 res.redirect('http://www.appcan.cn/error/404.html');
             };
@@ -150,5 +146,56 @@ router.get('/', function(req, res) { //缺省跳转
     res.redirect('news/hyzx');
 })
 
+function searchList(lanmu,zid,x,fRows,cn,fSql,connection,res) {
+	var box={};
+	var prev_id=0,next_id;
+	var prev_title='',next_title='';
+	var father=95;
+	if (lanmu=='gfxw') father=94;
+	if (lanmu=='jchd') father=116;
+	var lSql="select id,title from template_base where son_template_id="+father+" and del=0 order by created_at desc";
+	connection.query(lSql,function(err,rows) {
+		if (!err) {
+			for (var i = 0; i < rows.length; i++) {
+				if(rows[i].id==zid){ //当前条目在列表中的索引位置
+					if (i==0) {      //索引为0
+						prev_id=0;
+						prev_title='没有了';
+						if (rows.length==1) {		//条目个数为1					
+						    next_id=0;
+						    next_title='没有了';
+						}else{                        //条目个数大于1
+                            next_id=rows[i+1].id;
+						    next_title=rows[i+1].title;
+						}
+					}else if(i==(rows.length-1)){    //最后一条 
+                        prev_id=rows[i-1].id;
+						prev_title=rows[i-1].title;
+						next_id=0;
+						next_title='没有了';
+					}else{ //索引不为0
+                        prev_id=rows[i-1].id;
+						prev_title=rows[i-1].title;
+						next_id=rows[i+1].id;
+						next_title=rows[i+1].title;
+					}	
+				}
+			}
+			box={
+				prev_id:prev_id,
+				prev_title:prev_title.replace(/\s+/,''),
+				next_id:next_id,
+				next_title:next_title.replace(/\s+/,''),
+			}
+			if (x == 1) {
+                res.json({ status: '0', message: '查询成功', channal: cn, data: fRows, sql: fSql, zid: zid,lanmu:lanmu,id:'',add:box });
+            } else {
+                res.render('news_details', { status: '0', message: '查询成功', channal: cn, data: fRows, sql: fSql, zid: zid,lanmu:lanmu,id:'',add:box });
+            };
+			return box;
+
+		}else{throw err};
+	});
+};
 
 module.exports = router;

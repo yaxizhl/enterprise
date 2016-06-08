@@ -59,17 +59,19 @@ $(function () {
 	var mc=RegExp.$1;
 	
 
-	if ((mc==113)||(mc==115)||(mc==266)||(mc==323)) {$('#systemSetting').addClass('in');$('.xiala1').removeClass('collapsed').children('i').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
-	if ((mc==381)||(mc==116)||(mc==137)||(mc==324)||(mc==325)||(mc==346)||(mc==267)) {$('#configSetting').addClass('in');$('.xiala2').removeClass('collapsed').children('i').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
-	$('.nav-header').click(function(event) {
-
-		if ($(this).hasClass('collapsed')) {
-			$(this).children('i').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
-		}else{
-			$(this).children('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
-		}
-		
-	});
+	if ((mc==113)||(mc==115)||(mc==266)||(mc==323)) {$('#cat1').addClass('in');$('.xiala1').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
+	if ((mc==381)||(mc==116)||(mc==137)||(mc==324)||(mc==325)||(mc==346)||(mc==267)) {$('#cat2').addClass('in');$('.xiala2').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');};
+    if (mc==113) {$('.a1').addClass('on1')};
+    if (mc==267) {$('.a2').addClass('on1')};
+    if (mc==326) {$('.a3').addClass('on1')};
+    $('.a1,.a2,a3').click(function(event) {
+        if (!$(this).next().hasClass('in')) {
+            $(this).children('i').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+        }else{
+            $(this).children('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+        }
+        
+    });
 })
 </script>
 </html>

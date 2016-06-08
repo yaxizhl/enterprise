@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽奖页</title>
+	<link rel="stylesheet" href="css/style0602.css">
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+	<div class="time">6月8日   ~    6月20日    丰厚大奖抽不停！</div>
+	<div class="roll">
+		<ul class="box">
+			<li>
+				<div class="title"><img src="images/jp-0.jpg" alt=""></div>
+				<div class="shadow62 c0">
+					<img src="images/b-0.png" alt="">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-1.jpg" alt=""></div>
+				<div class="shadow62 c1">
+					<img src="images/b-1.png" alt="" style="margin:120px 0 0 90px">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-2.jpg" alt=""></div>
+				<div class="shadow62 c2">
+					<img src="images/b-2.png" alt="" style="margin:90px 0 0 95px">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-3.jpg" alt=""></div>
+				<div class="shadow62 c3">
+					<img src="images/b-3.png" alt="">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-9.jpg" alt=""></div>
+				<div class="shadow62 c9">
+					<img src="images/b-9.png" alt="">
+				</div>
+			</li>
+			<div class="mid">
+				<div class="left">
+					<h3>获奖名单</h3>
+					<div class="bbox" id="bbox">
+						<dl id="xx1">
+
+						</dl>
+					</div>
+					
+				</div>
+				<div class="right" id="cj"></div>
+			</div>
+			<li>
+				<div class="title"><img src="images/jp-4.jpg" alt=""></div>
+				<div class="shadow62 c4">
+					<img src="images/b-4.png" alt="">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-8.jpg" alt=""></div>
+				<div class="shadow62 c8">
+					<img src="images/b-8.png" alt="">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-7.jpg" alt=""></div>
+				<div class="shadow62 c7">
+					<img src="images/b-3.png" alt="">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-6.jpg" alt=""></div>
+				<div class="shadow62 c6">
+					<img src="images/b-6.png" alt="" style="margin:90px 0 0 60px">
+				</div>
+			</li>
+			<li>
+				<div class="title"><img src="images/jp-5.jpg" alt=""></div>
+				<div class="shadow62 c5">
+					<img src="images/b-5.png" alt="" style="margin:110px 0 0 80px">
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="guize">
+		<p>1.活动期间用户每日登录即可获得一次抽奖机会！</p>
+		<p>2.虚拟礼品（扩容空间）请联系AppCan小助QQ2277082326，立即为您送出！</p>
+		<p>3.实物礼品（如背包等），外地用户可安排寄送；北京用户请于6月24日AppCan移动开发者大会现场领取。<a href="http://www.huodongxing.com/event/8335155114400"  target="_black">立即报名</a></p>
+		<p>4.本次活动解释权归AppCan所有。</p>
+	</div>
+</div>
+<!-- 底部 -->
+<div class="footer">
+	<div class="box">
+		<div class="left">
+			<div class="tit">联系我们</div>
+			<dl style="width: 180px;">
+				<dt>开发者参会咨询</dt>
+				<dd>联系人：AppCan小助</dd>
+				<dd>电话：010-57580734</dd>
+				<dd>QQ：2277082326</dd>
+			</dl>
+			<dl style="width: 250px;">
+				<dt>技术产品合作</dt>
+				<dd>联系人：AppCan小益</dd>
+				<dd>电话：010-57580729</dd>
+				<dd>邮箱：xianjing.shang@zymobi.com</dd>
+			</dl>
+			<dl>
+				<dt>大会合作</dt>
+				<dd>联系人：AppCan小帅</dd>
+				<dd>电话：010-57580776 </dd>
+				<dd>邮箱：wenshuai.zhang@zymobi.com</dd>
+			</dl>
+		</div>
+		<div class="right">
+			<div class="tit">微信二维码</div>
+			<div class="img l"><img src="images/ewm2.jpg" alt=""></div>
+			<div class="img"><img src="images/ewm1.png" alt=""></div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- 弹框 -->
+<div class="popup_w"></div>
+<div class="popup1" id="kiss">
+	<div class="shadow">
+		<div class="tit">
+			<img src="images/b-3.png" alt="">
+		</div>
+		<img src="images/z-b-3.png" alt=""><h4>么么哒~~</h4>
+	</div>
+
+</div>
+<div class="popup2" id="other">
+	<div class="shadow">
+		<div class="tit" id="oimg"></div>
+		<p class="p1">== 恭喜您获得 ==</p>
+		<p class="p2" id="oimg2"></p>
+		<p class="p3">北京用户请于6月24日在AppCan移动开发者大会现场领取！</p>
+		<p class="p4"><a href="http://www.huodongxing.com/event/8335155114400" target="_black">立即报名</a></p>
+		<p class="p5"><a href="https://www.wenjuan.com/s/YnQfM3/" target="_black">https://www.wenjuan.com/s/YnQfM3/</a></p>
+		<p class="p6">（外地用户请点击这里填写收货信息）</p>
+	</div>
+</div>
+
+<div class="popup3" id="gogo">
+	<div class="shadow">
+		<p class="p1"></p>		
+		<p class="p4" id="alt"></p>
+		
+	</div>
+</div>
+
+
+
+<script>
+var user='',email='';
+//登录
+var cid=7;//奖品编号
+var i=0;//转轮位移次数
+var t;
+var title='';
+var flag=false;
+var list_num=0;
+
+$(function () {
+$.ajax({
+	url: 'http://dashboard.appcan.cn/login/info',
+	type: 'GET',
+	dataType: 'jsonp',
+	jsonp: 'callback',
+	success:function(data) {
+		if (data.login=='ok') {
+			console.log(data);
+			user=data.msg.username;
+			email=data.msg.email;
+			flag=true;    //登录成功可以抽奖
+		};				
+	}
+});
+
+//获取中奖列表
+function getList() {
+	$('#xx1').html('');
+	$.ajax({
+		url: '/api/draw_list',
+		type: 'GET',
+		dataType: 'json',
+		success:function(data) {
+			if (data.status==1) {
+				var con='';
+				list_num=data.msg.length;
+				for (var i = 0; i < data.msg.length; i++) {
+					if (data.msg[i].cid==3||data.msg[i].cid==7) continue;
+					con+='<dd>'+data.msg[i].user+' 获得了 '+data.msg[i].title+' 一个</dd>';
+				}
+				$('#xx1').append(con);
+
+			}else{
+				console.log('获取中奖列表失败！')
+			}
+		}
+	});
+}
+getList();
+
+
+//点击抽奖
+$('#cj').click(function(){
+	if (!flag){
+		$('.popup_w').addClass('on');
+		$('.popup3').addClass('on');
+		$('#alt').html('<a href="http://newsso.appcan.cn/login?service=http://enterprise.appcan.cn/mdc2016/raffle.html">登录</a>')
+		return;
+	}        //等待用户登录信息返回
+	$.ajax({
+		url: 'http://enterprise.appcan.cn/api/draw',
+		type: 'GET',
+		dataType: 'json',
+		data: {user: user,email: email},
+		success:function(data) {
+			console.log(data)
+			if (data.status!=1){
+				$('.popup_w').addClass('on');
+				$('.popup3').addClass('on');
+				$('#alt').html(data.msg)
+				return;
+			}
+			cid=data.data.cid;
+			title=data.data.title;
+			console.log('-cid-'+cid+'-------title'+title)
+			t=setInterval(now,100);
+		}
+	});
+});
+
+function now(){	
+	$('.shadow62').removeClass('on');
+    $('.c'+((i++)%10)).addClass('on');
+	if (i>40&&(i%10==cid)) {
+		
+		clearInterval(t);
+		popup();//弹出中奖信息
+		getList()//刷新中奖列表
+		$('.shadow62').removeClass('on');
+	    $('.c'+((i++)%10)).addClass('on');
+	    i=0;
+	}
+}
+
+
+//popup
+function popup() {
+	$('.popup_w').addClass('on');
+	if (cid==3||cid==7) {
+		$('.popup1').addClass('on');
+	}else{
+		$('.popup2').addClass('on');
+		$('#oimg').html('<img src="images/b-'+cid+'.png" alt="">');
+		$('#oimg2').html('<img src="images/z-b-'+cid+'.png" alt="">');
+	}
+}
+
+
+//back
+$('.popup_w').click(function(event) {
+	$('.popup_w,.popup1,.popup2,.popup3').removeClass('on');
+});
+
+
+//
+$('#cj').mousedown(function(event) {
+	$(this).addClass('on');
+});
+$('#cj').mouseup(function(event) {
+	$(this).removeClass('on');
+});
+
+//scroll
+function goScoll() {
+	if (list_num<5) return;//如果中奖列表条目小于5，则不滚动
+	var f=$('#xx1').children().eq(0);
+	var top=parseInt(f.css('margin-top'));
+	var l=f.clone();
+	if (top==0) {
+		f.css('margin-top', top-1);
+		$('#xx1').append(l);
+	}else if (top<0&&top>-45) {
+		f.css('margin-top', top-1);
+	}else{
+		f.remove();
+	}
+};
+
+var t6=setInterval(goScoll,100);
+
+$('#xx1').hover(function() {
+	clearInterval(t6);
+}, function() {
+	t6=setInterval(goScoll,100);
+});
+
+})
+</script>
+
+</body>
+</html>

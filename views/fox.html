@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .m_top_30{margin-top: 30px;}
+        .btn1{margin: 4px 5px 0 0;}
+        .btn2{margin: 4px 5px 0 0;}
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#">home</a></li>
+        <li role="presentation" class="active"><a href="#">抽奖</a></li>
+        <li role="presentation"><a href="#">其他</a></li>
+        <button class="btn btn-default pull-right btn2" role="button" id="exit">退出</button>
+    </ul>
+    <div class="container m_top_30">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">奖品存量</div>
+            <!-- Table -->
+            <table class="table">
+                <tr><td>键盘</td><td>背包</td><td>充电宝</td><td>多啦A梦</td><td>雨伞</td><td>扩容</td><td>小台灯</td><td>记事本</td><td>飞吻</td><td>飞吻</td></tr><tr>
+                <tr id="zj_qk"></tr>
+            </table>
+        </div>
+    </div>
+    <div class="container m_top_30">
+        <a href="/api/draw_list/down" target="_blank" class="btn btn-success pull-right btn1" id="csv">导出表格</a>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">中奖列表</div>
+            <!-- Table -->
+            <table class="table" id="zj_list">
+
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    //获取中奖列表
+    $.ajax({
+        url: '/api/draw_list',
+        type: 'GET',
+        dataType: 'json',
+        success:function(data) {
+            if (data.status==1) {
+                $('#zj_list').html('');
+                var con='<tr><td>昵称</td><td>邮箱</td><td>奖品</td><td>时间</td></tr>';
+                for (var i = 0; i < data.msg.length; i++) {
+                    con+='<tr><td>'+data.msg[i].user+'</td><td>'+data.msg[i].email+'</td><td>'+data.msg[i].title+'</td><td>'+data.msg[i].time+'</td></tr>';
+                }
+                $('#zj_list').append(con);
+
+            }else{
+                console.log('获取中奖列表失败！')
+            }
+        }
+    });
+
+//奖品剩余数量
+    $.ajax({
+        url: '/api/draw_list/last',
+        type: 'GET',
+        dataType: 'json',
+        success:function(data) {
+            if (data.status==1) {
+                $('#zj_qk').html('');
+                var con='';
+                for (var i = 0; i < data.msg.length; i++) {
+                    con+='<td>'+data.msg[i].last+'</td>';
+                    
+                }
+                $('#zj_qk').append(con);
+
+            }else{
+                console.log('获取中奖列表失败！')
+            }
+        }
+    });
+
+    $('#exit').click(function(event) {
+            $.post('/api/login/exit', function(data, textStatus, xhr) {
+                if (data.status=1) {
+                    location.href=data.url;
+                }
+            });
+    });
+})
+</script>
+</html>
