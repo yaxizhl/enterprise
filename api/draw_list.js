@@ -17,7 +17,7 @@ router.get('/down', function(req, res, next) {
                         json2csv({ data: rows, fields: fields }, function(err, csv) {
                             if (err) console.log(err);
                             fs.writeFile('file/zj_list.csv', csv, function(err) {
-                                if (err) throw err;
+                                if (err) console.log(err);
                                 return res.download('file/zj_list.csv')
                             });
                         });
@@ -27,12 +27,14 @@ router.get('/down', function(req, res, next) {
                 } else {
                     res.json({ status: -1, msg: '查询失败' })
                 }
+                connection.release();
             });
+
         } else {
             res.json({ status: -1, msg: '数据库连接错误' })
         }
 
-        connection.release();
+        
     });
 });
 
@@ -51,12 +53,13 @@ router.get('/last', function(req, res, next) {
                 } else {
                     res.json({ status: -1, msg: '查询失败' })
                 }
+
+                connection.release();
             });
         } else {
             res.json({ status: -1, msg: '数据库连接错误' })
         }
 
-        connection.release();
     });
 });
 
@@ -77,12 +80,14 @@ router.get('/', function(req, res, next) {
                 } else {
                     res.json({ status: -1, msg: '查询失败' })
                 }
+                console.log(connection)
+                connection.release();
             });
         } else {
             res.json({ status: -1, msg: '数据库连接错误' })
         }
 
-        connection.release();
+        
     });
 
 

@@ -2,7 +2,14 @@
 <html>
 <% 
     var cn='';
-    if(83==data[0].son_template_id) cn='行业类型';   
+    if(83==data[0].son_template_id){
+        if(id==329) cn='移动交通物流行业解决方案';
+        if(id==328) cn='移动能源行业解决方案';
+        if(id==270) cn='运营商行业移动信息化解决方案';
+        if(id==269) cn='航空业移动信息化解决方案';
+        if(id==268) cn='政务移动信息化解决方案';
+        if(id==140) cn='金融行业移动信息化解决方案';
+    };   
     if(85==data[0].son_template_id) cn='经典案例';
 %>
 <head>
