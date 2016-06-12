@@ -16,28 +16,28 @@ router.get('/', function(req, res, next) {
     }
     var m = Math.random();
     var cid = 0; //奖品序号
-    if (m <= 0.0025) { //0.0025  键盘
+    if (m <= 0.0001) { //0.0025  键盘
         cid = 6;
         Query_history(user, email, cid, res)
-    } else if (m > 0.0025 && m <= 0.0275) { //0.025  多啦A梦
+    } else if (m > 0.0001 && m <= 0.0006) { //0.025  多啦A梦
         cid = 4;
         Query_history(user, email, cid, res)
-    } else if (m > 0.0275 && m <= 0.0775) { //0.025  充电宝
+    } else if (m > 0.0006 && m <= 0.0011) { //0.025  充电宝
         cid = 9;
         Query_history(user, email, cid, res)
-    } else if (m > 0.0775 && m <= 0.1025) { //0.025 背包
+    } else if (m > 0.0011&& m <= 0.0016) { //0.025 背包
         cid = 2;
         Query_history(user, email, cid, res)
-    } else if (m > 0.1025 && m <= 0.1775) { //0.075  雨伞
+    } else if (m > 0.0016 && m <= 0.0021) { //0.075  雨伞
         cid = 0;
         Query_history(user, email, cid, res)
-    } else if (m > 0.1775 && m <= 0.3025) { //0.125  扩容
+    } else if (m > 0.0021 && m <= 0.0026) { //0.125  扩容
         cid = 1;
         Query_history(user, email, cid, res)
-    } else if (m > 0.3025 && m <= 0.5525) { //0.25  小台灯
+    } else if (m > 0.0026 && m <= 0.0526) { //0.25  小台灯
         cid = 5;
         Query_history(user, email, cid, res)
-    } else if (m > 0.5525 && m <= 0.8025) { //0.25  记事本
+    } else if (m > 0.0526 && m <= 0.1026) { //0.25  记事本
         cid = 8;
         Query_history(user, email, cid, res)
     } else {

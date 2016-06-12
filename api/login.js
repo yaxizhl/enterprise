@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.post('/exit', function(req, res, next) {
 	res.clearCookie('name');
-	res.json({status:'err',url:'/login.html'})
+	res.json({status:'err',url:'/login'})
   
 });
 
@@ -12,7 +12,6 @@ router.post('/exit', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	var u=req.body.user;
 	var p=req.body.pass;
-    console.log(req)
 	if (u=='appcan'&&p=='123456') {	
 		res.json({status:'index',name:'appcan',url:'/fox'});
 	}else{

@@ -91,7 +91,7 @@
                             <li style="background:#e4eaf5;height:62px;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;">
                                 <h4 style="font-weight: 700;font-size: 18px; font-family:微软雅黑;margin:0px;line-height:62px;margin-left:20px;"><%= cn.substr(2,2) %>列表</h4>
                             </li>
-                            <% for(var i=data.length-1;i>-1;i--){ %>
+                            <% for(var i=0;i<data.length;i++){ %>
                             <span class="span-style span-style-a" style="position: relative;">
                                 <a href="/solution/<%= lanmu %>/<%= data[i].id %>" target="_blank" style="font-family:微软雅黑;color:#494949">
                                     <img src="http://3g2win.com/3g2winapi/getCImg?img=<%= data[i].propaganda_image_pc %>" style="width:260px;height:180px" alt="">

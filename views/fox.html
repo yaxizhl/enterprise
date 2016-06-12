@@ -56,9 +56,9 @@ $(function() {
         success:function(data) {
             if (data.status==1) {
                 $('#zj_list').html('');
-                var con='<tr><td>昵称</td><td>邮箱</td><td>奖品</td><td>时间</td></tr>';
+                var con='<tr><td>序号</td><td>昵称</td><td>邮箱</td><td>奖品</td><td>时间</td></tr>';
                 for (var i = 0; i < data.msg.length; i++) {
-                    con+='<tr><td>'+data.msg[i].user+'</td><td>'+data.msg[i].email+'</td><td>'+data.msg[i].title+'</td><td>'+data.msg[i].time+'</td></tr>';
+                    con+='<tr><td>'+(i+1)+'</td><td>'+data.msg[i].user+'</td><td>'+data.msg[i].email+'</td><td>'+data.msg[i].title+'</td><td>'+data.msg[i].time+'</td></tr>';
                 }
                 $('#zj_list').append(con);
 
