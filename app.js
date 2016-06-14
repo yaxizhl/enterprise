@@ -40,10 +40,10 @@ app.use('/fox', fox);//抽奖
 app.use('/', routes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-	console.log('catch 404 and forward to error handler')
-  res.redirect('http://www.appcan.cn/error/404.html');
-});
+// app.use(function(req, res, next) {
+// 	console.log('catch 404 and forward to error handler --消息来自app.js')
+//   res.redirect('http://www.appcan.cn/error/404.html');
+// });
 
 //异常处理
 app.use(function(err, req, res, next) {

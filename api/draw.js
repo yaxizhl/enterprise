@@ -7,7 +7,7 @@ var pool = require('./sql');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) { 
     var user = req.query.user;
     var email = req.query.email;
 
@@ -62,8 +62,10 @@ function Query_history(user, email, cid, res) {
                         var arr=[0,1,2,4,5,6,8,9];
                         if (rows[0].time == getTime()) {
                             res.json({ status: -1, msg: '一天只有一次抽奖机会！' });
-                        }else if (arr.some(function(x) {return x==rows[0].cid;})) {
+                        }else if (arr.some(function(x) {return x==rows[0].cid;})) {     //如果上次中过奖，且奖品不是飞吻则返回飞吻
                             Query(user, email, 3,connection, res);
+                        }else{                                                        //如果上次中过奖，且奖品是飞吻则返回所有可能
+                            Query(user, email, cid,connection, res);
                         };
                     } else {
                         res.json({ status: -1, err: "查询用户信息0" });
@@ -73,11 +75,11 @@ function Query_history(user, email, cid, res) {
                 };
 
             });
-
+            connection.release();
         } else {
             res.json({ status: -1, err: '数据库连接错误' });
         };
-        connection.release();
+        
     });
 }
 

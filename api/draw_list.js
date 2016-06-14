@@ -66,7 +66,6 @@ router.get('/last', function(req, res, next) {
 
 //接口
 router.get('/', function(req, res, next) {
-    var csv1 = req.query.csv;
     pool.getConnection(function(err, connection) {
         if (!err) {
             var sql = "select * from cjlist";
@@ -80,13 +79,13 @@ router.get('/', function(req, res, next) {
                 } else {
                     res.json({ status: -1, msg: '查询失败' })
                 }
-                console.log(connection)
-                connection.release();
+                
+                
             });
         } else {
             res.json({ status: -1, msg: '数据库连接错误' })
         }
-
+        connection.release();
         
     });
 
