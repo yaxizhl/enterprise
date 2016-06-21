@@ -170,6 +170,14 @@ var title='';
 var flag=false;
 var list_num=0;
 
+
+function setCookie(c_name,value,expiredays){
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+expiredays)
+	document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/"
+}
+
+
 $(function () {
 $.ajax({
 	url: 'http://dashboard.appcan.cn/login/info',
@@ -178,9 +186,10 @@ $.ajax({
 	jsonp: 'callback',
 	success:function(data) {
 		if (data.login=='ok') {
-			console.log(data);
 			user=data.msg.username;
 			email=data.msg.email;
+			setCookie('c_user',user);
+			setCookie('c_email',email);
 			flag=true;    //登录成功可以抽奖
 		};				
 	}
@@ -224,9 +233,7 @@ $('#cj').click(function(){
 		url: 'http://enterprise.appcan.cn/api/draw',
 		type: 'GET',
 		dataType: 'json',
-		data: {user: user,email: email},
 		success:function(data) {
-			console.log(data)
 			if (data.status!=1){
 				$('.popup_w').addClass('on');
 				$('.popup3').addClass('on');
@@ -235,7 +242,6 @@ $('#cj').click(function(){
 			}
 			cid=data.data.cid;
 			title=data.data.title;
-			console.log('-cid-'+cid+'-------title'+title)
 			t=setInterval(now,100);
 		}
 	});

@@ -7,11 +7,11 @@ var pool = require('./sql');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) { 
-    var user = req.query.user;
-    var email = req.query.email;
-
-    if (!user || !email) {
+router.get('/', function(req, res, next) {
+    var user = unescape(req.cookies.c_user);
+    var email = unescape(req.cookies.c_email);
+    console.log(user,!user,user==undefined,typeof user)
+    if (!!user || !!email) {
         return res.json({ status: -1, msg: '请先登录！' });
     }
     var m = Math.random();
@@ -52,6 +52,7 @@ router.get('/', function(req, res, next) {
 function Query_history(user, email, cid, res) {
     pool.getConnection(function(err, connection) {
         if (!err) {
+            //email查找
             var sql = "select * from cjlist where email='" + email + "' order by id desc";
             //console.log(sql)
             connection.query(sql, function(err, rows) {
@@ -128,12 +129,13 @@ function insertQuery(user, email, cid, connection, res) {
     var sql_add = "insert into cjlist (user,email,title,cid,time) value ('" + user + "','" + email + "','" + title + "','" + cid + "','" + getTime() + "')";
     connection.query(sql_add, function(err, rows) {
         if (!err) {
-            res.json({ status: 1, msg: 'ok!', data: { title: title, cid: cid }, rows: rows });
+            res.json({ status: 1, msg: 'ok!', data: { title: title, cid: cid }});
         } else {
             res.json({ status: -1, err: '添加用户信息出错' });
         }
     });
 }
+
 
 
 function getTime() {
