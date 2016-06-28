@@ -4,7 +4,7 @@
             <div id="header_tiao" class="hp_fix" style="min-width:1200px;margin-left:auto;margin-right:auto;">
                 <div class="contenters">
                     <div class="smallSpan ufl" id="logfailedId" style="margin-left: 20px;"><span class="c_wh c_wh1">Hi~ </span><span class="c_wh c_wh2"><a class="aTextDex" href="http://newsso.appcan.cn/login?service=" id="login">请登录</a></span><span class="c_wh c_wh2 c_wh3"><a class="aTextDex" href="http://dashboard.appcan.cn/register" id="register">马上注册 </a></span></div>
-                    <div class="smallSpan ufl huanyingni ul_display_none" id="logSuccessId"><span id="userNameId"><a href="http://dashboard.appcan.cn/user"></a></span><span>-</span><span><a href="newsso.appcan.cn/logout?service=http://edu.appcan.cn/">退出</a></span></div>
+                    <div class="smallSpan ufl huanyingni ul_display_none" id="logSuccessId"></div>
                     <div>
                         <ul id="head-ul">
                             <li><a href="http://dashboard.appcan.cn/app">开发</a></li>
@@ -316,12 +316,9 @@
         </div>
     </div>
 </div>
-
-
-
 <script>
 $(function() {
-    
+
     $(window).scroll(function() {
         var x = document.body.scrollLeft + document.documentElement.scrollLeft;
         var barWidth = $(window).width();
@@ -356,164 +353,172 @@ $(function() {
 
     });
 
-    window.onscroll = function(){
-    var x=document.body.scrollLeft+document.documentElement.scrollLeft;
-    var barWidth = $(window).width();
-    $(".toubu").css("left",-x+"px");
-}
-
-$(function(){
-    $(".hover-li").mouseover(function(){
-        $(".head-class").eq($(this).index()-1).css("display","block");
-        $(this).children('div').css("background-color","#3565a3");
-        });
-    $(".hover-li").mouseout(function(){
-        $(".head-class").eq($(this).index()-1).css("display","none");
-        $(".hover-li").children('div').css("background-color","")
-        });
-    $(".head-class").mouseover(function(){
-        $(this).css("display","block");
-        $(".hover-li").eq($(this).index()+1).children('div').css("background-color","#3565a3");
-        });
-    $(".head-class").mouseout(function(){
-        $(this).css("display","none");
-        $(".hover-li").eq($(this).index()+1).children('div').css("background-color","")
-        });
-});
-
-//@vic v-12.7 10:22
-
-$(window).resize(function () {
-    var reWidth=$(window).width();
-    if (reWidth < 992 ) {
-        $(".mob-main").removeClass("hidd");
-        $("#scro").addClass('hidd')
-    }else{
-        $('#scro').removeClass('hidd');
-        $('.mob-main').addClass('hidd')
-        $('#sidenav').click();
-    }
-})
-
-$(window).load(function(){
-    var screenWidth = $(window).width();
-    if (screenWidth<992) {
-        $("#scro").addClass("hidd");
-        $(".mob-main").removeClass("hidd");
-    }else{
-        $("#scro").removeClass("hidd")
+    window.onscroll = function() {
+        var x = document.body.scrollLeft + document.documentElement.scrollLeft;
+        var barWidth = $(window).width();
+        $(".toubu").css("left", -x + "px");
     }
 
-    var toscrollHeight = $('.to-scroll').height();
-    var wh=$(window).height();
-    $('#sidenav .modal-dialog,#sidenav .modal-content').height(wh);
-    $('.content-lv1').click(function(event) {
-        if(!$(this).hasClass('active')){
-            $('.active').next().find('.active2').click();
-            $('.active').next().find('.content-lv2').removeClass('active2');
-            if($('.active').find('p').text()=="-"){
-                $('.active').click();
-            }
-            $(this).siblings('.content-lv1').removeClass('active');
-            $(this).addClass('active')
-        }
-        $(this).find('a').css('color', '#007eca');
-        $(this).css('color', '#007eca');
-        if ($(this).find('p').text()=="+") {
-            $(this).find('p').text('-').css('font-size', '20px');
-                
-        }else{
-            $(this).find('p').text('+').css('font-size', '12px');
-            $(this).find('a').css('color', '#000');
-            $(this).css('color', '#000');
-        }
+    $(function() {
+        $(".hover-li").mouseover(function() {
+            $(".head-class").eq($(this).index() - 1).css("display", "block");
+            $(this).children('div').css("background-color", "#3565a3");
+        });
+        $(".hover-li").mouseout(function() {
+            $(".head-class").eq($(this).index() - 1).css("display", "none");
+            $(".hover-li").children('div').css("background-color", "")
+        });
+        $(".head-class").mouseover(function() {
+            $(this).css("display", "block");
+            $(".hover-li").eq($(this).index() + 1).children('div').css("background-color", "#3565a3");
+        });
+        $(".head-class").mouseout(function() {
+            $(this).css("display", "none");
+            $(".hover-li").eq($(this).index() + 1).children('div').css("background-color", "")
+        });
     });
-    $('.content-lv2').click(function(event) {
-        if(!$(this).hasClass('active2')){
-            if($(this).parent().find('.active2').find('p').text()=="-"){
-                $('.active2').click();
-            }
-            $(this).siblings('.content-lv2').removeClass('active2');
-            $(this).addClass('active2')
-        }
-        $(this).find('a').css('color', '#007eca');
-        $(this).find('p').css('color', '#007eca');
-        if ($(this).find('p').text()=="+") {
-            $(this).find('p').text('-').css('font-size', '20px');
-        }else{
-            $(this).find('p').text('+').css('font-size', '12px').css('color', '#000');
-            $(this).find('a').css('color', '#666');
 
+    //@vic v-12.7 10:22
+
+    $(window).resize(function() {
+        var reWidth = $(window).width();
+        if (reWidth < 992) {
+            $(".mob-main").removeClass("hidd");
+            $("#scro").addClass('hidd')
+        } else {
+            $('#scro').removeClass('hidd');
+            $('.mob-main').addClass('hidd')
+            $('#sidenav').click();
         }
-    });
-    $('.content-lv3').click(function(event) {
+    })
+
+    $(window).load(function() {
+        var screenWidth = $(window).width();
+        if (screenWidth < 992) {
+            $("#scro").addClass("hidd");
+            $(".mob-main").removeClass("hidd");
+        } else {
+            $("#scro").removeClass("hidd")
+        }
+
+        var toscrollHeight = $('.to-scroll').height();
+        var wh = $(window).height();
+        $('#sidenav .modal-dialog,#sidenav .modal-content').height(wh);
+        $('.content-lv1').click(function(event) {
+            if (!$(this).hasClass('active')) {
+                $('.active').next().find('.active2').click();
+                $('.active').next().find('.content-lv2').removeClass('active2');
+                if ($('.active').find('p').text() == "-") {
+                    $('.active').click();
+                }
+                $(this).siblings('.content-lv1').removeClass('active');
+                $(this).addClass('active')
+            }
             $(this).find('a').css('color', '#007eca');
             $(this).css('color', '#007eca');
-    });
-    
-    $('#sidebar').click(function(event) {
-        $('body').animate({right: '72%'}, 1000,'swing');
-        var h=$(window).height();
-        var w=$(window).width();
-        ww=w;
-        mgl=w*0.28;
-        w=w*0.72;
-        $("#sidenav .modal-content,#sidenav .modal-dialog").width(w);
-        $("#sidenav .modal-dialog").css('left', ww);
-        $("#sidenav .modal-dialog").animate({'left': mgl}, 1000,'swing');
+            if ($(this).find('p').text() == "+") {
+                $(this).find('p').text('-').css('font-size', '20px');
 
-        $('.to-scroll').css("height",h-10);
-        //$('.to-scroll').css('overflow','hidden');
-        
-        // $('.to-scroll').bind('touchmove',function (event) {
-        //     event.preventDefault();
-        //     //$('.to-scroll').css('overflow','hidden');
-        // },false);
-    
-    });
-    $(".sidebar-content").click(function(event) {
-        event.stopPropagation();
-    });
-    $('.content-lv1').click(function(event) {
-        $(this).next('.lv2box').toggle();
-    });
-    $('.content-lv2').click(function(event) {
-        $(this).next('.lv3box').toggle();
-    });
-    
-    $('.expline2>div>div').click(function(event) {
-        $(this).css('color', '#3565a3').css('background', '#f2f2f2');
-        $(this).siblings().css('color', '#666').css('background', '#fff');
-        $(this).parent().siblings().find('.appname').css('color', '#666').css('background', '#fff');
-    });
-    // $('#sidenav').bind('touchmove', function(e) {
-    //     e = e || window.event;
-    //     var h=$(window).height();
-    //     $('.to-scroll').css("height",h);
-    //     //$('.to-scroll').css('overflow','hidden');
-
-    // });
-    $('#sidenav').click(function(e) {
-        //$('#sidenav').unbind('touchmove');
-        $('body').animate({right: '0'}, 500,'swing');
-
-        var w=$(window).width();        
-        $("#sidenav .modal-dialog").animate({'left': w}, 500,function(){
-            $('#sidenav').modal('hide');
+            } else {
+                $(this).find('p').text('+').css('font-size', '12px');
+                $(this).find('a').css('color', '#000');
+                $(this).css('color', '#000');
+            }
         });
-        //$('.to-scroll').css('overflow','auto')
-        //$('.to-scroll').css('height','auto');
-        $('.to-scroll').css('height',toscrollHeight+'px');
+        $('.content-lv2').click(function(event) {
+            if (!$(this).hasClass('active2')) {
+                if ($(this).parent().find('.active2').find('p').text() == "-") {
+                    $('.active2').click();
+                }
+                $(this).siblings('.content-lv2').removeClass('active2');
+                $(this).addClass('active2')
+            }
+            $(this).find('a').css('color', '#007eca');
+            $(this).find('p').css('color', '#007eca');
+            if ($(this).find('p').text() == "+") {
+                $(this).find('p').text('-').css('font-size', '20px');
+            } else {
+                $(this).find('p').text('+').css('font-size', '12px').css('color', '#000');
+                $(this).find('a').css('color', '#666');
 
-        $('#sidenav').click(function(event) {
+            }
+        });
+        $('.content-lv3').click(function(event) {
+            $(this).find('a').css('color', '#007eca');
+            $(this).css('color', '#007eca');
+        });
+
+        $('#sidebar').click(function(event) {
+            $('body').animate({
+                right: '72%'
+            }, 1000, 'swing');
+            var h = $(window).height();
+            var w = $(window).width();
+            ww = w;
+            mgl = w * 0.28;
+            w = w * 0.72;
+            $("#sidenav .modal-content,#sidenav .modal-dialog").width(w);
+            $("#sidenav .modal-dialog").css('left', ww);
+            $("#sidenav .modal-dialog").animate({
+                'left': mgl
+            }, 1000, 'swing');
+
+            $('.to-scroll').css("height", h - 10);
+            //$('.to-scroll').css('overflow','hidden');
+
+            // $('.to-scroll').bind('touchmove',function (event) {
+            //     event.preventDefault();
+            //     //$('.to-scroll').css('overflow','hidden');
+            // },false);
+
+        });
+        $(".sidebar-content").click(function(event) {
             event.stopPropagation();
         });
+        $('.content-lv1').click(function(event) {
+            $(this).next('.lv2box').toggle();
+        });
+        $('.content-lv2').click(function(event) {
+            $(this).next('.lv3box').toggle();
+        });
 
-        
+        $('.expline2>div>div').click(function(event) {
+            $(this).css('color', '#3565a3').css('background', '#f2f2f2');
+            $(this).siblings().css('color', '#666').css('background', '#fff');
+            $(this).parent().siblings().find('.appname').css('color', '#666').css('background', '#fff');
+        });
+        // $('#sidenav').bind('touchmove', function(e) {
+        //     e = e || window.event;
+        //     var h=$(window).height();
+        //     $('.to-scroll').css("height",h);
+        //     //$('.to-scroll').css('overflow','hidden');
 
-    });
+        // });
+        $('#sidenav').click(function(e) {
+            //$('#sidenav').unbind('touchmove');
+            $('body').animate({
+                right: '0'
+            }, 500, 'swing');
 
-})
+            var w = $(window).width();
+            $("#sidenav .modal-dialog").animate({
+                'left': w
+            }, 500, function() {
+                $('#sidenav').modal('hide');
+            });
+            //$('.to-scroll').css('overflow','auto')
+            //$('.to-scroll').css('height','auto');
+            $('.to-scroll').css('height', toscrollHeight + 'px');
+
+            $('#sidenav').click(function(event) {
+                event.stopPropagation();
+            });
+
+
+
+        });
+
+    })
 
     //定位js
     $(function() {
@@ -541,8 +546,10 @@ $(window).load(function(){
 
     //@vic v-12.23 16:17
     //登录
-    var lj=$('#login').attr('href');
-    $('#login').attr('href',lj+location.href);
+    var lj = $('#login').attr('href');
+    var lj2 = $('#loginout').attr('href');
+    $('#login').attr('href', lj + location.href);
+    $('#loginout').attr('href', lj2 + location.href);
 });
 
 
@@ -560,9 +567,9 @@ var _hmt = _hmt || [];
 
 //20160422 百度商桥
 (function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?d2f8cf438a1c60b4c14e6983620b37ae";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d2f8cf438a1c60b4c14e6983620b37ae";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
 })();
 </script>
